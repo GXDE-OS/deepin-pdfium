@@ -17,7 +17,7 @@
 class DPdfPage;
 class DPdfDocHandler;
 class DPdfDocPrivate;
-class DEEPDF_EXPORT DPdfDoc : public QObject
+class DPdfDoc : public QObject
 {
     Q_OBJECT
     Q_DECLARE_PRIVATE(DPdfDoc)
@@ -140,6 +140,18 @@ private:
      * @return
      */
     bool isLinearized(const QString &fileName);
+
+    /**
+     * @brief Save local file
+     * @return
+     */
+    bool saveLocalFile();
+
+    /**
+     * @brief Save remote file
+     * @return
+     */
+    bool saveRemoteFile();
 
 private:
     Q_DISABLE_COPY(DPdfDoc)
