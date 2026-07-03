@@ -1,3 +1,34 @@
+deepin-pdfium (1.5.8) unstable; urgency=medium
+
+  * chore: Adjusted build and packaging strategy
+
+ -- wangrong <wangrong@uniontech.com>  Wed, 26 Nov 2025 13:29:39 +0800
+
+deepin-pdfium (1.5.7) unstable; urgency=medium
+
+  * update version to 1.5.7
+  * fix: coredump when application destruction.
+
+ -- re2zero <yangwu@uniontech.com>  Wed, 22 Oct 2025 15:25:13 +0800
+
+deepin-pdfium (1.5.6) unstable; urgency=medium
+
+  * update version to 1.5.6
+
+ -- zhanghongyuan <zhanghongyuan@uniontech.com>  Thu, 16 Oct 2025 22:49:08 +0800
+
+deepin-pdfium (1.5.5) unstable; urgency=medium
+
+  * update version to 1.5.5
+
+ -- zhanghongyuan <zhanghongyuan@uniontech.com>  Thu, 16 Oct 2025 19:16:39 +0800
+
+deepin-pdfium (1.5.4) unstable; urgency=medium
+
+  * fix: Fix url link access
+
+ -- re2zero <yangwu@uniontech.com>  Wed, 15 Oct 2025 13:23:54 +0800
+
 deepin-pdfium (1.5.3) unstable; urgency=medium
 
   * Improves the way the application handles PDF files located on remote filesystems like SMB:
