@@ -1,0 +1,36 @@
+# Maintainer: CharOfString <root@charofstring.cc>
+pkgname=deepin-pdfium-git
+pkgver=1.5.8
+pkgrel=1
+pkgdesc='PDF parsing and rendering library (GXDE fork of deepin-pdfium)'
+arch=('x86_64' 'aarch64')
+url="https://github.com/GXDE-OS/deepin-pdfium"
+license=('LGPL-3.0-or-later' 'LicenseRef-PDFiumLicense')
+depends=('qt6-base' 'openjpeg2' 'libchardet' 'lcms2' 'libjpeg-turbo' 'libpng' 'icu' 'zlib' 'freetype2'
+         'libgcc' 'libstdc++' 'glibc')
+makedepends=('git' 'cmake' 'ninja' 'qt6-tools')
+provides=('deepin-pdfium')
+conflicts=('deepin-pdfium')
+source=()
+sha512sums=()
+
+# 直接使用 PKGBUILD 所在的 git 仓库作为源码 ・ Build from the git checkout this PKGBUILD lives in.
+_srcroot() {
+  git -C "$startdir" rev-parse --show-toplevel
+}
+
+build() {
+  cmake -B build -S "$(_srcroot)" -GNinja \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_DISABLE_FIND_PACKAGE_Qt5=ON \
+    -DVERSION="$pkgver"
+  ninja -C build
+}
+
+package() {
+  DESTDIR="$pkgdir" ninja -C build install
+  # PDFium 的自定义许可证需随包附带 ・ Ship the custom PDFium license text.
+  install -Dm644 "$(_srcroot)/LICENSES/LicenseRef-PDFiumLicense.txt" -t "$pkgdir/usr/share/licenses/$pkgname/"
+}
