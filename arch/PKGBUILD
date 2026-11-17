@@ -1,5 +1,5 @@
 # Maintainer: CharOfString <root@charofstring.cc>
-pkgname=deepin-pdfium-git
+pkgname=gxde-deepin-pdfium
 pkgver=1.5.8
 pkgrel=1
 pkgdesc='PDF parsing and rendering library (GXDE fork of deepin-pdfium)'
@@ -9,8 +9,9 @@ license=('LGPL-3.0-or-later' 'LicenseRef-PDFiumLicense')
 depends=('qt6-base' 'openjpeg2' 'libchardet' 'lcms2' 'libjpeg-turbo' 'libpng' 'icu' 'zlib' 'freetype2'
          'libgcc' 'libstdc++' 'glibc')
 makedepends=('git' 'cmake' 'ninja' 'qt6-tools')
-provides=('deepin-pdfium')
-conflicts=('deepin-pdfium')
+provides=('deepin-pdfium' "deepin-pdfium-git=$pkgver")
+conflicts=('deepin-pdfium' 'deepin-pdfium-git')
+replaces=('deepin-pdfium-git')
 source=()
 sha512sums=()
 
